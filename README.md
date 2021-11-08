@@ -2,9 +2,9 @@
 如果需要Push，请自己New一个Branch，写在**自己的分支**里面
 分支的命名格式为：
 
-> Name(ID)_work
+> Name_ID__work
 >
-> 例：Liyuqian(Br)_program,ID没有可不填
+> 例：Liyuqian_Br_program,ID没有可不填
 
 
 
