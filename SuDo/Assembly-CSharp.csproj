@@ -47,7 +47,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\suOne.cs" />
+     <Compile Include="Assets\scripts\tapTwo.cs" />
+     <Compile Include="Assets\scripts\tapThree.cs" />
+     <Compile Include="Assets\scripts\suTwo.cs" />
+     <Compile Include="Assets\scripts\bash.cs" />
+     <Compile Include="Assets\scripts\tapOne.cs" />
      <Compile Include="Assets\scripts\player.cs" />
+     <Compile Include="Assets\scripts\suThree.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/unity_engine/2020.3.20f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

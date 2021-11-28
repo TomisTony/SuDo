@@ -70,22 +70,22 @@ public class player : MonoBehaviour
     public GameObject suThreeSpecialEffect;//溯E的特效
 
     //距离修正
-    public float tapOneDistanceFix;//轻击第一段的距离修正
-    public float tapTwoDistanceFix;//轻击第二段的距离修正
-    public float tapThreeDistanceFix;//轻击第三段的距离修正
-    public float bashDistanceFix;//重击的距离修正
-    public float suOneDistanceFix;//溯Q的距离修正
-    public float suTwoDistanceFix;//溯W的距离修正
-    public float suThreeDistanceFix;//溯E的距离修正
+    public float[] tapOneDistanceFix = new float[4];//轻击第一段的距离修正
+    public float[] tapTwoDistanceFix = new float[4];//轻击第二段的距离修正
+    public float[] tapThreeDistanceFix = new float[4];//轻击第三段的距离修正
+    public float[] bashDistanceFix = new float[4];//重击的距离修正
+    public float[] suOneDistanceFix = new float[4];//溯Q的距离修正
+    public float[] suTwoDistanceFix = new float[4];//溯W的距离修正
+    public float[] suThreeDistanceFix = new float[4];//溯E的距离修正
 
     //角度修正
-    public float tapOneRotationFix;//轻击第一段的角度修正
-    public float tapTwoRotationFix;//轻击第二段的角度修正
-    public float tapThreeRotationFix;//轻击第三段的角度修正
-    public float bashRotationFix;//重击的角度修正
-    public float suOneRotationFix;//溯Q的角度修正
-    public float suTwoRotationFix;//溯W的角度修正
-    public float suThreeRotationFix;//溯E的角度修正
+    public float[] tapOneRotationFix = new float[4];//轻击第一段的角度修正
+    public float[] tapTwoRotationFix = new float[4];//轻击第二段的角度修正
+    public float[] tapThreeRotationFix = new float[4];//轻击第三段的角度修正
+    public float[] bashRotationFix = new float[4];//重击的角度修正
+    public float[] suOneRotationFix = new float[4];//溯Q的角度修正
+    public float[] suTwoRotationFix = new float[4];//溯W的角度修正
+    public float[] suThreeRotationFix = new float[4];//溯E的角度修正
 
 
     //private变量
@@ -220,7 +220,7 @@ public class player : MonoBehaviour
                 this.ani.SetInteger("state", (int)Priority.tap);
                 this.ani.SetInteger("tap_state", this.tapState);
                 //创建轻击实例
-                SpecialEffectsHandle(tapOneSpecialEffect,tapOneDistanceFix,tapOneRotationFix);
+                SpecialEffectsHandle(tapOneSpecialEffect,tapOneDistanceFix[faceDirection-1],tapOneRotationFix[faceDirection-1]);
             }      
             else if((publicTimer > tapOneAheadTime + tapOneTime && this.tapState == 1) ||
                 (publicTimer > tapTwoAheadTime + tapTwoTime && this.tapState == 2))
@@ -240,9 +240,9 @@ public class player : MonoBehaviour
                 this.ani.SetInteger("tap_state", this.tapState);
                 //创建轻击实例
                 if(this.tapState == 2)
-                    SpecialEffectsHandle(tapTwoSpecialEffect, tapTwoDistanceFix, tapTwoRotationFix);
+                    SpecialEffectsHandle(tapTwoSpecialEffect, tapTwoDistanceFix[faceDirection-1], tapTwoRotationFix[faceDirection-1]);
                 else if(this.tapState == 3)
-                    SpecialEffectsHandle(tapThreeSpecialEffect, tapThreeDistanceFix, tapThreeRotationFix);
+                    SpecialEffectsHandle(tapThreeSpecialEffect, tapThreeDistanceFix[faceDirection-1], tapThreeRotationFix[faceDirection-1]);
             }
                 
 
@@ -261,7 +261,7 @@ public class player : MonoBehaviour
             this.ani.SetInteger("direction", this.faceDirection);
             this.ani.SetInteger("state", (int)Priority.bash);
             //创建重击实例
-            SpecialEffectsHandle(bashSpecialEffect, bashDistanceFix, bashRotationFix);
+            SpecialEffectsHandle(bashSpecialEffect, bashDistanceFix[faceDirection-1], bashRotationFix[faceDirection-1]);
         }
         //渡相关
         //渡的处理比较特殊，因为渡状态其实是作为一个背景板存在的，所以只有按键瞬间的鼠标处理
@@ -269,9 +269,14 @@ public class player : MonoBehaviour
         {
             if(!this.isDo && !isShadowSave)//开启渡
             {
+                Sprite playerSprite;
+                Color changeColor = new Color(0.6f, 0.6f, 1f, 0.3f);
+                playerSprite = this.GetComponent<SpriteRenderer>().sprite;
                 this.isDo = true;
                 this.isShadowSave = true;
                 shadowInGame = Instantiate(shadow);
+                shadow.GetComponent<SpriteRenderer>().sprite = playerSprite;
+                shadow.GetComponent<SpriteRenderer>().color = changeColor;
                 shadowInGame.transform.position = this.transform.position;//shadow实例化
             }
             else if(this.isDo)//结束渡
@@ -312,7 +317,7 @@ public class player : MonoBehaviour
                 this.ani.SetInteger("state", (int)Priority.Su);
                 this.ani.SetInteger("su_state",this.suState);
                 //创建溯Q实例
-                SpecialEffectsHandle(suOneSpecialEffect, suOneDistanceFix, suOneRotationFix);
+                SpecialEffectsHandle(suOneSpecialEffect, suOneDistanceFix[faceDirection-1], suOneRotationFix[faceDirection-1]);
             }
         }
         //溯_W
@@ -339,7 +344,7 @@ public class player : MonoBehaviour
                 this.ani.SetInteger("state", (int)Priority.Su);
                 this.ani.SetInteger("su_state", this.suState);
                 //创建溯W实例
-                SpecialEffectsHandle(suTwoSpecialEffect, suTwoDistanceFix, suTwoRotationFix);
+                SpecialEffectsHandle(suTwoSpecialEffect, suTwoDistanceFix[faceDirection-1], suTwoRotationFix[faceDirection-1]);
             }
         }
         //溯_E
@@ -366,7 +371,7 @@ public class player : MonoBehaviour
                 this.ani.SetInteger("state", (int)Priority.Su);
                 this.ani.SetInteger("su_state", this.suState);
                 //创建溯E实例
-                SpecialEffectsHandle(suThreeSpecialEffect, suThreeDistanceFix, suThreeRotationFix);
+                SpecialEffectsHandle(suThreeSpecialEffect, suThreeDistanceFix[faceDirection-1], suThreeRotationFix[faceDirection - 1]);
             }
         }
     }
@@ -606,24 +611,35 @@ public class player : MonoBehaviour
     void ChangeDirection()
     {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
-        if (mouse.y > mouse.x && mouse.y > -1 * mouse.x)
+        if (mouse.y > 0 && mouse.x > 0)
             this.faceDirection = (int)Direction.up;
-        else if (mouse.y < mouse.x && mouse.y > -1 * mouse.x)
+        else if (mouse.y < 0 && mouse.x >0)
             this.faceDirection = (int)Direction.right;
-        else if (mouse.y < mouse.x && mouse.y < -1 * mouse.x)
+        else if (mouse.y < 0 && mouse.x < 0)
             this.faceDirection = (int)Direction.down;
-        else if (mouse.y > mouse.x && mouse.y < -1 * mouse.x)
+        else if (mouse.y > 0 && mouse.x < 0)
             this.faceDirection = (int)Direction.left;
     }
 
-    void SpecialEffectsHandle(GameObject effectObject, float distanceFix, float rotationFix)
+    void SpecialEffectsHandle(GameObject effectObject,float distanceFix,float rotationFix)
     {
         GameObject effect = Instantiate(effectObject);//实例化
+        Vector3 up = new Vector3(0,1,0);
+        Vector3 right = new Vector3(1,0,0);
+        Vector3 down = new Vector3(0,-1,0);
+        Vector3 left = new Vector3(-1, 0, 0);
+
         effect.transform.position = this.transform.position + direction.normalized * distanceFix;
-        //注意该处的角度变换，x与y是没有变换的。x的变换程度是目前鼠标指向的位置向量与vector3.up之间的
-        //较小角度（<180°）加上rotationFix
-        effect.transform.rotation = Quaternion.Euler(0,0,
-                                    Vector3.Angle(Vector3.up,this.direction) + rotationFix);
+        //注意该处的角度变换，x与y是没有变换的。x的变换程度是目前鼠标指向的位置向量与对应direction的基准向量之间的
+        //较小角度（<180°）,再加上调整的rotationFix
+        if(this.faceDirection == (int)Direction.up)
+            effect.transform.rotation = Quaternion.Euler(0, 0, rotationFix + Vector3.Angle(this.direction,right));
+        if (this.faceDirection == (int)Direction.right)
+            effect.transform.rotation = Quaternion.Euler(0, 0, rotationFix + Vector3.Angle(this.direction,down));
+        if (this.faceDirection == (int)Direction.down)
+            effect.transform.rotation = Quaternion.Euler(0, 0, rotationFix + Vector3.Angle(this.direction,left));
+        if (this.faceDirection == (int)Direction.left)
+            effect.transform.rotation = Quaternion.Euler(0, 0, rotationFix + Vector3.Angle(this.direction,up));
     }
 
 }

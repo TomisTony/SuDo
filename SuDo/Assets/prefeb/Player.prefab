@@ -8,13 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2339527160570560612}
+  - component: {fileID: 1266525537628790611}
   - component: {fileID: 2339527160570560615}
   - component: {fileID: 2339527160570560613}
   - component: {fileID: 7266728530211299172}
   - component: {fileID: -4036181700960976467}
   - component: {fileID: -1912804698030085907}
-  - component: {fileID: 8100120497023242081}
+  - component: {fileID: 1930474052913137410}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -22,7 +22,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2339527160570560612
+--- !u!4 &1266525537628790611
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2339527160570560614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9088c903824e4d34e9bf82624d5b2069, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b0a6bbb489d2fd48a49688ad2b72d8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.74, y: 3.73}
+  m_Size: {x: 1.43, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,37 +102,64 @@ MonoBehaviour:
   nowAction: 0
   canInterrupt: 0
   isDo: 0
-  isDown: 0
+  faceDirection: 0
+  tapState: 0
+  suState: 0
   moveSpeed: 0
   moveSpeedInDo: 0
   dodgeSpeed: 0
   tapOneAheadTime: 0
   tapTwoAheadTime: 0
   tapThreeAheadTime: 0
-  bashOneAheadTime: 0
-  bashTwoAheadTime: 0
-  bashThreeAheadTime: 0
+  bashAheadTime: 0
   doAheadTime: 0
   dodgeAheadTime: 0
+  suOneAheadTime: 0
+  suTwoAheadTime: 0
+  suThreeAheadTime: 0
   tapOneTime: 0
   tapTwoTime: 0
   tapThreeTime: 0
-  bashOneTime: 0
-  bashTwoTime: 0
-  bashThreeTime: 0
+  bashTime: 0
   doTime: 0
   shadowExitTime: 0
   dodgeTime: 0
+  hurtTime: 0
+  suOneTime: 0
+  suTwoTime: 0
+  suThreeTime: 0
   tapOneEndTime: 0
   tapTwoEndTime: 0
   tapThreeEndTime: 0
-  bashOneEndTime: 0
-  bashTwoEndTime: 0
-  bashThreeEndTime: 0
+  bashEndTime: 0
   doEndTime: 0
   dodgeEndTime: 0
+  suOneEndTime: 0
+  suTwoEndTime: 0
+  suThreeEndTime: 0
   shadow: {fileID: 0}
   ani: {fileID: -4036181700960976467}
+  tapOneSpecialEffect: {fileID: 2568779362163712265, guid: 8c5c5d6a2d1007b49ae482cb6de27cb4, type: 3}
+  tapTwoSpecialEffect: {fileID: 5487556130965013149, guid: ae5bafaa43425464cb80f50deba709f4, type: 3}
+  tapThreeSpecialEffect: {fileID: 1346783472040355957, guid: 3cccd87fac1f8fc44bdebe1c1d1fce17, type: 3}
+  bashSpecialEffect: {fileID: 798673223600944696, guid: f2dcda0f499d41246b9437c65ec02afe, type: 3}
+  suOneSpecialEffect: {fileID: 7760562494339144709, guid: 0e9e402a787ebea4298c9eb0a36e2209, type: 3}
+  suTwoSpecialEffect: {fileID: 4581195886722527278, guid: f769b8758b7103448833d3677304a238, type: 3}
+  suThreeSpecialEffect: {fileID: 8564367433093470849, guid: 9afb2e58ce52ae748b09b41cd104cedd, type: 3}
+  tapOneDistanceFix: []
+  tapTwoDistanceFix: []
+  tapThreeDistanceFix: []
+  bashDistanceFix: []
+  suOneDistanceFix: []
+  suTwoDistanceFix: []
+  suThreeDistanceFix: []
+  tapOneRotationFix: []
+  tapTwoRotationFix: []
+  tapThreeRotationFix: []
+  bashRotationFix: []
+  suOneRotationFix: []
+  suTwoRotationFix: []
+  suThreeRotationFix: []
 --- !u!50 &7266728530211299172
 Rigidbody2D:
   serializedVersion: 4
@@ -186,73 +213,24 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01778853, y: 0.6017144}
+  m_Offset: {x: -0.0035259277, y: 0.06361118}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.72, y: 7.68}
-    newSize: {x: 1.74, y: 3.73}
+    oldSize: {x: 1.43, y: 1.92}
+    newSize: {x: 1.43, y: 1.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0842793, y: 3.1165686}
+  m_Size: {x: 0.33492872, y: 0.71495456}
   m_EdgeRadius: 0
---- !u!60 &8100120497023242081
-PolygonCollider2D:
+--- !u!222 &1930474052913137410
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2339527160570560614}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.72, y: 7.68}
-    newSize: {x: 1.74, y: 3.73}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -2.1399999, y: -3.1999998}
-      - {x: -2.1, y: -3.32}
-      - {x: -1.78, y: -3.32}
-      - {x: -1.6999999, y: -3.24}
-      - {x: -1.74, y: -3.12}
-      - {x: -2.06, y: -3.12}
-    - - {x: 0.9, y: -0.68}
-      - {x: 0.7, y: 0.39999998}
-      - {x: 0.9, y: 0.96}
-      - {x: 0.9, y: 1}
-      - {x: 0.42, y: 1.9599999}
-      - {x: 0.42, y: 2.28}
-      - {x: 0.22, y: 2.56}
-      - {x: -0.22, y: 2.56}
-      - {x: -0.45999998, y: 2.32}
-      - {x: -0.5, y: 2.1599998}
-      - {x: -0.45999998, y: 2}
-      - {x: -0.7, y: 1.24}
-      - {x: -0.7, y: 0.64}
-      - {x: 0.39714274, y: 1.3405677}
-      - {x: -0.71279407, y: -1.1685766}
-      - {x: 0.36671448, y: -1.5632337}
-      - {x: -0.58, y: -1.24}
-      - {x: -0.82, y: -1.4399999}
-      - {x: -0.74, y: -1.76}
-      - {x: -0.62, y: -1.8}
-      - {x: -0.26, y: -1.8399999}
-      - {x: -0.099999994, y: -2.36}
-      - {x: 0.22, y: -2.36}
-      - {x: 0.29999998, y: -2.28}
-      - {x: 0.42, y: -1.56}
-      - {x: 0.9, y: -0.88}
+  m_CullTransparentMesh: 1

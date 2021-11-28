@@ -178,3 +178,93 @@ C# parse time         : 456ms
 candidates check time : 63ms
 console write time    : 1ms
 
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:16:38 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1866.0065ms
+moved types parse time: 111ms
+candidates parse time : 2ms
+C# parse time         : 481ms
+candidates check time : 142ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:23:53 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 166.0563ms
+moved types parse time: 101ms
+candidates parse time : 2ms
+C# parse time         : 457ms
+candidates check time : 112ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:27:10 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 158.0362ms
+moved types parse time: 99ms
+candidates parse time : 2ms
+C# parse time         : 452ms
+candidates check time : 115ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:31:42 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 176.0384ms
+moved types parse time: 101ms
+candidates parse time : 2ms
+C# parse time         : 460ms
+candidates check time : 122ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:32:22 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 178.0392ms
+moved types parse time: 108ms
+candidates parse time : 3ms
+C# parse time         : 447ms
+candidates check time : 121ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:33:41 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 182.0366ms
+moved types parse time: 100ms
+candidates parse time : 2ms
+C# parse time         : 526ms
+candidates check time : 122ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:33:46 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 154.034ms
+moved types parse time: 110ms
+candidates parse time : 2ms
+C# parse time         : 460ms
+candidates check time : 116ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:41:50 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 184.0402ms
+moved types parse time: 113ms
+candidates parse time : 3ms
+C# parse time         : 527ms
+candidates check time : 122ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2021/11/28 16:42:45 : Starting D:/unity_engine/2020.3.20f1c1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 171.5828ms
+moved types parse time: 103ms
+candidates parse time : 2ms
+C# parse time         : 495ms
+candidates check time : 117ms
+console write time    : 1ms
+
